@@ -25,6 +25,8 @@ module.exports = (function () {
             condition = commands['if'];
             oldText = commands['innerText'];
 
+            //strPattern = strPattern ? new RegExp(strPattern) : strPattern;
+
             if (condition != null && !processor.checkCondition(condition)) {
                 return null;
             }

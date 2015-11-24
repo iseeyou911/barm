@@ -149,10 +149,11 @@ module.exports = (function () {
                                 result = "";
                             }
 
+                            //result = this.replacePlaceHolder(result);
                         }
 
                         if (this.isState(CONSTS.STATE.INSERT_START) && result == null) {
-                            result = line;
+                            result = this.replacePlaceHolder(line);
                         }
                     }
                 }
