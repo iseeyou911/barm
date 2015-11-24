@@ -1,7 +1,7 @@
 {
   "name": "grunt-barm",
   "description": "JavaScript, HTML, CSS preprocessor",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/iseeyou911/barm",
   "author": {
     "name": "Timofey Novitskiy",
@@ -32,7 +32,7 @@
     "grunt-contrib-nodeunit": "^0.3.3",
     "grunt": "~0.4.5",
     "grunt-contrib-copy": "~0.8.2",
-    "extend" : ""
+    "extend": "~3.0.0"
   },
   "peerDependencies": {
     "grunt": "~0.4.5"

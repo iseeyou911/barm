@@ -31,7 +31,7 @@ exports.barm = {
         done();
     },
     default_options: function (test) {
-        test.expect(4);
+        test.expect(5);
 
         var actual = grunt.file.read('tmp/replace_test.js');
         var expected = grunt.file.read('test/expected/replace_test.js');
@@ -48,6 +48,10 @@ exports.barm = {
         actual = grunt.file.read('tmp/import_test.js');
         expected = grunt.file.read('test/expected/import_test.js');
         test.equal(actual, expected, 'Js import_test test');
+
+        actual = grunt.file.read('tmp/html.test.html');
+        expected = grunt.file.read('test/expected/html.test.html');
+        test.equal(actual, expected, 'Js html.test.html test');
 
         test.done();
     }
