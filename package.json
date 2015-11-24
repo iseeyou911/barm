@@ -1,0 +1,43 @@
+{
+  "name": "grunt-barm",
+  "description": "JavaScript, HTML, CSS preprocessor",
+  "version": "0.1.0",
+  "homepage": "https://github.com/iseeyou911/barm",
+  "author": {
+    "name": "Timofey Novitskiy",
+    "email": "i.see.you911@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:iseeyou911/barm.git"
+  },
+  "bugs": {
+    "url": "https://github.com/iseeyou911/barm/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/iseeyou911/barm/blob/master/LICENSE-MIT"
+    }
+  ],
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "^0.9.2",
+    "grunt-contrib-clean": "^0.5.0",
+    "grunt-contrib-nodeunit": "^0.3.3",
+    "grunt": "~0.4.5",
+    "grunt-contrib-copy": "~0.8.2",
+    "extend" : ""
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.5"
+  },
+  "keywords": [
+    "gruntplugin"
+  ]
+}

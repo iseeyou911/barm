@@ -1,0 +1,1 @@
+//import file=^./test/fixtures/file_to_import.html^
