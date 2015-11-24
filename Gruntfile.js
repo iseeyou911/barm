@@ -33,7 +33,8 @@ module.exports = function (grunt) {
                     'tmp/replace_test.js': 'test/fixtures/replace_test.js',
                     'tmp/import_test.js': 'test/fixtures/import_test.js',
                     'tmp/insert_test.js': 'test/fixtures/insert_test.js',
-                    'tmp/replace_insert_test.html': 'test/fixtures/replace_insert_test.html'
+                    'tmp/replace_insert_test.html': 'test/fixtures/replace_insert_test.html',
+                    'tmp/html.test.html': 'test/fixtures/html.test.html'
                 }
             }
         },
