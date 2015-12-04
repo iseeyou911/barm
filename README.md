@@ -37,53 +37,97 @@ grunt.initConfig({
 
 ### Options
 
-#### options.separator
-Type: `String`
-Default value: `',  '`
+#### options.globalParams
+Type: `Object`
+Default value: `{}`
 
-A string value that is used to do something with whatever.
+A params, that can be used in all files.
 
-#### options.punctuation
-Type: `String`
-Default value: `'.'`
-
-A string value that is used to do something else with whatever else.
-
-### Usage Examples
-
-#### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
-
-```js
-grunt.initConfig({
-  barm: {
-    options: {},
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-});
-```
-
-#### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
+### Usage Example
 
 ```js
 grunt.initConfig({
   barm: {
     options: {
-      separator: ': ',
-      punctuation: ' !!!',
+      globalParams: {
+        debug : true
+      }
     },
     files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
+      'src': ['src/testing', 'src/123'],
+    }
+  }
 });
 ```
 
+##Directives
+###define paramName=paramValue
+Defining of local param with _name_ - _paramName_ and _value_ - _paramValue_, that visible only in current file, this param will overwrite global param with same name for current file.
+####html
+```html
+<!--define key=value-->
+```
+####js
+```js
+//define key=value
+```
+
+###insert ?if
+Inserting of commented text to file
+#####if 
+condition statement, must be a simple equolity, such as _paramName_=_condition_ (note both value of param with name _paramName_ and condition will be converted to String), or simple _paramName_, at this case condition will be true if param exists.
+
+####html
+```html
+<!--insert
+<script type="text/javascript" src="vendors/release/dojo/dojo-mini.js" ></script>
+<script type="text/javascript" src="vendors/release/dijit/dijit-mini.js" ></script>
+<script type="text/javascript" src="vendors/release/dojox/dojox-mini.js" ></script>
+/insert-->
+
+-----result-----
+
+<script type="text/javascript" src="vendors/release/dojo/dojo-mini.js" ></script>
+<script type="text/javascript" src="vendors/release/dijit/dijit-mini.js" ></script>
+<script type="text/javascript" src="vendors/release/dojox/dojox-mini.js" ></script>
+```
+####js
+```js
+/*insert
+var mode = 'dev'
+/insert*/
+
+-----result-----
+
+var mode = 'dev'
+
+```
+
+###replase to? pattern? if?
+Replacing of all text or substrings of text between open and close tags to text, that is specified at _to_ attribute.
+
+####attributes
+#####to 
+text to replacement
+#####pattern 
+search regexp. If attribute is specified, then all substrings, found by regexp, will be replaced to text at _to_ attribute.
+#####if 
+condition statement, must be a simple equolity, such as _paramName_=_condition _(note both value of param with name _paramName_ and condition will be converted to String), or simple _paramName_, at this case condition will be true if param exists.
+
+
+###html
+```html
+<!--replace to=^<script type="text/javascript" src="vendors/release/dojox/dojox-mini.js" ></script>^-->
+<script type="text/javascript" src="vendors/release/dojox/dojox-mini.js" ></script>
+<!--/replace-->
+
+-----result-----
+
+<script type="text/javascript" src="vendors/release/dojox/dojox-mini.js" ></script>
+
+```
 ## Contributing
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
+
 
 ## Release History
 _(Nothing yet)_
