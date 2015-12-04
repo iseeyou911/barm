@@ -135,7 +135,7 @@ var mode = 'dev'
 ###replace to=^_text to replacement_^ [pattern=^_regular expression_^] [if=^_condition statement_^]
 Replacing of all text or substrings of text between open and close tags to text, that is specified at _to_ attribute.
 
-####attributes (order of attributes is important, but you can skip one or more optional params!)
+####attributes (order of attributes is important, but you can skip one or more optional attributes!)
 #####to 
 text to replacement
 #####pattern 
@@ -166,9 +166,9 @@ dojo.require("dijit.layout.ContentPane");
 -----result-----
 
 dojo.require("dijit.form.TextBox");
+```
 
-----------------
-
+```js
 /*replace to=^dojo^ pattern=^dijit^*/
 dojo.require("dijit.layout.LayoutContainer");
 /*/replace*/
@@ -176,8 +176,9 @@ dojo.require("dijit.layout.LayoutContainer");
 -----result-----
 
 dojo.require("dojo.layout.LayoutContainer");
+```
 
-----------------
+```js
 //define reportServerUrl='_reportServerUrl1_'
 
 window.restReportService = /*replace to=^${reportServerUrl}^*/'http://localhost:28080/tes-report/'/*/replace*/;
@@ -185,8 +186,9 @@ window.restReportService = /*replace to=^${reportServerUrl}^*/'http://localhost:
 -----result-----
 
 window.restReportService = '_reportServerUrl1_';
+```
 
-----------------
+```js
 //define debug=true
 
 window.restReportService1 = /*replace to=^'test1'^ if=^debug^*/'http://localhost:28080/tes-report/'/*/replace*/;
@@ -198,8 +200,96 @@ window.restReportService3 = /*replace to=^'test3'^ if=^debug=false^*/'http://loc
 window.restReportService1 = 'test1';
 window.restReportService2 = 'test2';
 window.restReportService3 = /*replace to=^'test3'^ if=^debug=false^*/'http://localhost:28080/tes-report/'/*/replace*/;
+```
+
+### import file=^_path to file_^ [type=^_type_^] [if=^_condition statement_^]
+Importing content of one file to anather file.
+
+####attributes (order of attributes is important, but you can skip one or more optional attributes!)
+#####file
+_path to file_ must be relative to Gruntfile.js
+#####type
+Type of file, if _type_ equal to css, than importing content will be wrapped by <style type="text/css"></style>.
+#####if 
+condition statement, must be a simple equality, such as _paramName_=_condition_ (note both value of parameter with name _paramName_ and condition will be converted to String), or simple _paramName_, at this case condition will be true if parameter exists.
+
+```html
+/**importing.html**/
+<div>TEST</div>
+
+/**index.html**/
+
+<html>
+  <body>
+<!--import file=^./importing.js^-->
+  </body>
+</html>
+
+-----result-----
+
+<html>
+  <body>
+   <div>TEST</div>
+  </body>
+</html>
 
 ```
+
+```html
+/**importing.css**/
+.cursor_pointer {
+ cursor: pointer
+}
+
+/**index.html**/
+
+<html>
+  <head>
+  <!--import file=^./importing.js^-->
+  </head>
+  <body>
+  </body>
+</html>
+
+-----result-----
+
+<html>
+  <head>
+  <style type="text/css">
+    .cursor_pointer {
+      cursor: pointer
+    }
+  </style>
+  </head>
+  <body>
+  </body>
+</html>
+
+```
+
+```js
+/**importing.js**/
+var debug = true;
+
+/**main.js**/
+
+//import file=^./importing.js^
+
+if (debug) {
+  console.log(debug);
+}
+
+-----result-----
+
+var debug = true;
+
+if (debug) {
+  console.log(debug);
+}
+```
+## Groovy version
+https://github.com/iseeyou911/JSPP
+
 ## Contributing
 
 
