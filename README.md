@@ -61,7 +61,7 @@ grunt.initConfig({
 ```
 
 ##Placeholders
-###Synax
+###Syntax
 ${paramName[:transformFunction]}
 
 You can use placholders for params in _insert_ directive, in _to_ attribute. There is one tansform function that available at this moment: _removeQuotes_.
