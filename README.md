@@ -41,7 +41,9 @@ grunt.initConfig({
 Type: `Object`
 Default value: `{}`
 
-A params, that can be used in all files.
+A parameters, that can be used in all files.
+
+Attention! If you don't specify _dest_ parameter in _files_, then changes will be made in original file!
 
 ### Usage Example
 
@@ -99,10 +101,10 @@ Defining of local param with _name_ - _paramName_ and _value_ - _paramValue_, th
 //define key=value
 ```
 
-###insert ?if
+###insert [if=^_condition statement_^]
 Inserting of commented text to file
 #####if 
-condition statement, must be a simple equolity, such as _paramName_=_condition_ (note both value of param with name _paramName_ and condition will be converted to String), or simple _paramName_, at this case condition will be true if param exists.
+condition statement, must be a simple equality, such as _paramName_=_condition_ (note both value of parameter with name _paramName_ and condition will be converted to String), or simple _paramName_, at this case condition will be true if parameter exists.
 
 ####html
 ```html
@@ -139,7 +141,7 @@ text to replacement
 #####pattern 
 search regexp. If attribute is specified, then all substrings, found by regexp, will be replaced to text from _to_ attribute.
 #####if 
-condition statement, must be a simple equolity, such as _paramName_=_condition _(note both value of param with name _paramName_ and condition will be converted to String), or simple _paramName_, at this case condition will be true if param exists.
+condition statement, must be a simple equality, such as _paramName_=_condition_ (note both value of parameter with name _paramName_ and condition will be converted to String), or simple _paramName_, at this case condition will be true if parameter exists.
 
 
 ###html
