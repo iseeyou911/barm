@@ -203,7 +203,7 @@ window.restReportService3 = /*replace to=^'test3'^ if=^debug=false^*/'http://loc
 ```
 
 ### import file=^_path to file_^ [type=^_type_^] [if=^_condition statement_^]
-Importing content of one file to anather file.
+Importing content of one file to another file.
 
 ####attributes (order of attributes is important, but you can skip one or more optional attributes!)
 #####file
