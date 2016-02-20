@@ -29,7 +29,7 @@ var patterns = {
         },
         'import': {
             calll: importCMD,
-            single: /\/\/\s*import\s*(file)\s*=\s*\^([^\^]*)\^\s*(?:(type)\s*=\s*\^([^\^]*)\^\s*)?(?:(if)\s*=\s*\^([^\^]*)\^\s*)?/,
+            single: /\/\/\s*import\s*(file)\s*=\s*\^([^\^]*)\^\s*(?:(type)\s*=\s*\^([^\^]*)\^\s*)?(?:(if)\s*=\s*\^([^\^]*)\^\s*)?/
         }
     },
 

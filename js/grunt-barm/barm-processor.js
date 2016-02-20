@@ -160,7 +160,7 @@ module.exports = (function () {
 
                 if (result != null) {
                     editedLines++;
-                    newFile.push(result);
+                    result != '' && newFile.push(result);
                 } else {
                     newFile.push(line);
                 }
